@@ -116,7 +116,7 @@ async function main(prompt = '') {
 
           try {
             const toolResult = executeCommandCli(input);
-            console.log(`⚙️: ${functionName}: ${input} => ${toolResult}`)
+            console.log(`👉: ${functionName}: ${input} => ${toolResult}`)
             MESSAGES_DB.push({
               role : 'developer',
               content: JSON.stringify({
@@ -134,7 +134,7 @@ async function main(prompt = '') {
         }
         case 'getWeatherData':{
           const toolResult = await getWeatherData(input);
-          console.log(`⚙️: ${functionName}: ${input} => ${toolResult}`)
+          console.log(`👉: ${functionName}: ${input} => ${toolResult}`)
           MESSAGES_DB.push({
             role : 'developer',
             content: JSON.stringify({

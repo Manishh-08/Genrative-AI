@@ -113,15 +113,23 @@ async function main(prompt = '') {
       const {functionName, input} = parsedResult;
       switch(functionName){
         case 'executeCommandCli':{
-          const toolResult = executeCommandCli(input);
-          console.log(`⚙️: ${functionName}: ${input} => ${toolResult}`)
-          MESSAGES_DB.push({
-            role : 'developer',
-            content: JSON.stringify({
-              step: "TOOL_OUTPUT",
-              content : JSON.stringify(toolResult)
-            })
-          });
+
+          try {
+            const toolResult = executeCommandCli(input);
+            console.log(`⚙️: ${functionName}: ${input} => ${toolResult}`)
+            MESSAGES_DB.push({
+              role : 'developer',
+              content: JSON.stringify({
+                step: "TOOL_OUTPUT",
+                content : JSON.stringify(toolResult)
+              })
+            });
+          } catch (error) {
+              MESSAGES_DB.push({
+                role: 'developer',
+                content: json.stringify({status: 'error', error})  
+              })
+          }
           continue;
         }
         case 'getWeatherData':{

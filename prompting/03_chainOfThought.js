@@ -12,7 +12,7 @@ const SYSTEM_PROMPT = `
   We are going to follow the pipeline of "INITAL", "THINK", "ANALYSE" and "OUTPUT" pipeline.
 
   The Pipeline:
-  - "INITAL" when user gives an input, we will have an initial thought process of what the user is trying to do.
+  - "INITIAL" when user gives an input, we will have an initial thought process of what the user is trying to do.
   - "THINK" this is where we are going to think how to solve the problem and then breaking it down further.
   - "ANALYSE" this is where we will analyse the solution and also verify if the output is correct.
   - "THINK" we can go back to think process again if any sub problem is remaining to be addressed.
